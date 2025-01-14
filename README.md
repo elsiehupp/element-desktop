@@ -1,6 +1,6 @@
 ![Build](https://github.com/vector-im/element-desktop/actions/workflows/build.yaml/badge.svg)
 ![Static Analysis](https://github.com/vector-im/element-desktop/actions/workflows/static_analysis.yaml/badge.svg)
-[![Weblate](https://translate.element.io/widgets/element-desktop/-/element-desktop/svg-badge.svg)](https://translate.element.io/engage/element-desktop/)
+[![Localazy](https://img.shields.io/endpoint?url=https%3A%2F%2Fconnect.localazy.com%2Fstatus%2Felement-web%2Fdata%3Fcontent%3Dall%26title%3Dlocalazy%26logo%3Dtrue)](https://localazy.com/p/element-web)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=element-desktop&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=element-desktop)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=element-desktop&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=element-desktop)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=element-desktop&metric=bugs)](https://sonarcloud.io/summary/new_code?id=element-desktop)
@@ -75,10 +75,10 @@ yarn run build
 
 This will do a couple of things:
 
--   Run the `setversion` script to set the local package version to match whatever
-    version of Element you installed above.
--   Run electron-builder to build a package. The package built will match the operating system
-    you're running the build process on.
+- Run the `setversion` script to set the local package version to match whatever
+  version of Element you installed above.
+- Run electron-builder to build a package. The package built will match the operating system
+  you're running the build process on.
 
 ## Docker
 
@@ -101,9 +101,6 @@ After running, the packages should be in `dist/`.
 If you'd just like to run the electron app locally for development:
 
 ```
-# Install electron - we don't normally need electron itself as it's provided
-# by electron-builder when building packages
-yarn add electron
 yarn start
 ```
 
@@ -134,22 +131,24 @@ Alternatively, a custom location for the profile data can be specified using the
 
 # User-specified config.json
 
--   `%APPDATA%\$NAME\config.json` on Windows
--   `$XDG_CONFIG_HOME/$NAME/config.json` or `~/.config/$NAME/config.json` on Linux
--   `~/Library/Application Support/$NAME/config.json` on macOS
+- `%APPDATA%\$NAME\config.json` on Windows
+- `$XDG_CONFIG_HOME/$NAME/config.json` or `~/.config/$NAME/config.json` on Linux
+- `~/Library/Application Support/$NAME/config.json` on macOS
 
 In the paths above, `$NAME` is typically `Element`, unless you use `--profile
 $PROFILE` in which case it becomes `Element-$PROFILE`, or it is using one of
 the above created by a pre-1.7 install, in which case it will be `Riot` or
 `Riot-$PROFILE`.
 
+You may also specify a different path entirely for the `config.json` file by
+providing the `--config $YOUR_CONFIG_JSON_FILE` to the process, or via the
+`ELEMENT_DESKTOP_CONFIG_JSON` environment variable.
+
 # Translations
 
 To add a new translation, head to the [translating doc](https://github.com/vector-im/element-web/blob/develop/docs/translating.md).
 
 For a developer guide, see the [translating dev doc](https://github.com/vector-im/element-web/blob/develop/docs/translating-dev.md).
-
-[<img src="https://translate.element.io/widgets/element-desktop/-/multi-auto.svg" alt="translationsstatus" width="340">](https://translate.element.io/engage/element-desktop/?utm_source=widget)
 
 # Report bugs & give feedback
 
